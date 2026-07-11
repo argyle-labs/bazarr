@@ -1,0 +1,29 @@
+# Bazarr - Subtitle Manager
+# docs: ../../docs/services/bazarr.md
+
+services:
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:${BAZARR_IMAGE_TAG:-latest}
+    container_name: bazarr
+    environment:
+      - PUID=${PUID:-99}
+      - PGID=${PGID:-100}
+      - TZ=${TZ:-America/Denver}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6767"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    ports:
+      - "6767:6767"
+    volumes:
+      - ${BAZARR_CONFIG_PATH:-/opt/appdata/bazarr}:/config
+      - ${MEDIA_PATH:-/mnt/pool/data/media}:/data/media
+    networks:
+      - media
+    restart: unless-stopped
+
+networks:
+  media:
+    external: true
