@@ -4,7 +4,7 @@
 
 # bazarr
 
-[Bazarr](https://www.bazarr.media/) manages and downloads subtitles for the
+[Bazarr](https://www.bazarr.media/) manages and sources subtitles for the
 movies and TV series handled by Radarr and Sonarr.
 
 First-party [orca](https://github.com/argyle-labs/orca) plugin (service-backend).
