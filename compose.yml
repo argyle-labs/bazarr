@@ -1,5 +1,5 @@
 # Bazarr - Subtitle Manager
-# docs: ../../docs/services/bazarr.md
+# docs: docs/bazarr.md
 
 services:
   bazarr:
