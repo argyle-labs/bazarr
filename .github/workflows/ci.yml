@@ -14,4 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Compose validate
-        uses: argyle-labs/.github/.github/actions/job-compose-validate@main
+        uses: argyle-labs/.github/.github/actions/job-compose-validate@v1
