@@ -1,16 +1,17 @@
 name: CI
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  ci:
-    uses: argyle-labs/.github/.github/workflows/compose-ci.yml@main
-    secrets: inherit
+  compose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compose validate
+        uses: argyle-labs/.github/.github/actions/job-compose-validate@main
